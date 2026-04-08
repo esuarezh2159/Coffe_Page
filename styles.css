@@ -693,14 +693,33 @@ nav .sep {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .carta-grid { grid-template-columns: repeat(2, 1fr); }
-  .carta-links { grid-template-columns: repeat(2, 1fr); }
-  .nosotros-img { flex: 0 0 420px; }
+  /* Navbar */
+  .navbar { padding: 16px 24px; }
+  .logo-img { height: 120px; width: 120px; }
+  nav a, nav .sep { font-size: 20px; }
+
+  /* Nosotros */
+  .nosotros { gap: 40px; padding: 60px 5%; }
+  .nosotros-img { flex: 0 0 340px; }
   .nosotros-img img { width: 100%; height: auto; }
+  .nosotros-text p { font-size: 15px; }
+
+  /* Carta */
+  .carta-grid { grid-template-columns: repeat(2, 1fr); }
+  .carta-links { grid-template-columns: repeat(3, 1fr); }
+
+  /* Galería */
+  .galeria-track .galeria-item { flex: 0 0 33.33%; }
+
+  /* Reservas */
+  .reservas-body { gap: 40px; }
+  .reservas-right { flex: 0 0 220px; }
 }
 
 @media (max-width: 768px) {
+  /* Navbar */
   .navbar { flex-wrap: wrap; padding: 16px 24px; gap: 0; }
+  .logo-img { height: 80px; width: 80px; }
   .nav-toggle { display: flex; }
   nav {
     flex-direction: column;
@@ -722,30 +741,39 @@ nav .sep {
   }
   nav .sep { display: none; }
 
+  /* Nosotros */
   .nosotros { flex-direction: column; padding: 40px 5%; gap: 32px; }
-  .nosotros-img { flex: unset; width: 100%; }
+  .nosotros-img { flex: unset; width: 80%; margin: 0 auto; }
   .nosotros-img img { width: 100%; height: auto; }
 
+  /* Plant divider */
   .plant-divider { height: 180px; }
 
+  /* Carta */
   .carta { padding: 40px 5%; }
-  .carta-grid { grid-template-columns: 1fr; }
-  .carta-links { grid-template-columns: 1fr; }
+  .carta-grid { grid-template-columns: repeat(2, 1fr); }
+  .carta-links { grid-template-columns: repeat(3, 1fr); }
+  .carta-link-btn svg { width: 64px; height: 64px; }
 
-  .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Galería */
   .galeria-track .galeria-item { flex: 0 0 50%; }
 
+  /* Reservas */
   .reservas-body { flex-direction: column; }
   .reservas-right { flex: unset; width: 55%; margin: 0 auto; }
   .reservas-inner { padding-bottom: clamp(180px, 22vw, 240px); }
 
+  /* Footer */
   .footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px 24px; }
 }
 
 @media (max-width: 480px) {
+  .logo-img { height: 60px; width: 60px; }
+  .nosotros-img { width: 100%; }
+  .carta-grid { grid-template-columns: 1fr; }
   .carta-links { grid-template-columns: 1fr; }
-  .galeria-grid { grid-template-columns: 1fr; }
   .galeria-track .galeria-item { flex: 0 0 100%; }
-  .nosotros-text h2 { font-size: 32px; }
-  .carta h2, .galeria h2 { font-size: 32px; }
+  .nosotros-text h2 { font-size: 28px; }
+  .carta h2, .galeria h2 { font-size: 28px; }
+  .reservas-right { width: 75%; }
 }
