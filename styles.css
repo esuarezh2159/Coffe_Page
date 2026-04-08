@@ -1,0 +1,751 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Castang';
+  src: url('castand(1).otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  color: #333;
+  background: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  z-index: 100;
+}
+
+.logo-img {
+  height: 186px;
+  width: 186px;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  background: #2d6a2d;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2d6a2d;
+  font-size: 32px;
+  font-family: 'Castang', 'Arial', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+
+nav a:hover { opacity: 0.7; }
+
+nav .sep {
+  color: #2d6a2d;
+  font-size: 32px;
+  font-family: 'Castang', 'Arial', sans-serif;
+}
+
+/* PLANT DIVIDER */
+.plant-divider {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.plant-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.plant-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #fff 0%, transparent 20%, transparent 80%, #fff 100%);
+  pointer-events: none;
+}
+
+/* NOSOTROS */
+.nosotros {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+  padding: 80px 6%;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nosotros-text {
+  flex: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.nosotros-text.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nosotros-text h2 {
+  font-size: clamp(42px, 5vw, 62px);
+  color: #2d6a2d;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.nosotros-text h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #2d6a2d;
+  margin: 12px auto 24px;
+  border-radius: 2px;
+}
+
+.nosotros-text p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+
+.nosotros-text .quote {
+  font-style: italic;
+  font-size: 22px;
+  color: #4a7c4a;
+  margin-top: 28px;
+  display: inline-block;
+}
+
+.nosotros-img {
+  flex: 0 0 650px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  filter: drop-shadow(0 24px 32px rgba(0,0,0,0.15));
+}
+
+.nosotros-img.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nosotros-img img {
+  width: 750px;
+  height: 750px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.nosotros-img img:hover {
+  transform: scale(1.08);
+}
+
+/* LA CARTA */
+.carta {
+  padding: 64px 5% 80px;
+  text-align: center;
+  background: #fff;
+}
+
+.carta h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  color: #2d6a2d;
+  font-style: italic;
+  margin-bottom: 48px;
+}
+
+.carta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  align-items: end;
+}
+
+.carta-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto 0;
+}
+
+.carta-link-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.carta-link-btn:hover {
+  transform: scale(1.05);
+}
+
+.carta-link-btn svg {
+  width: 96px;
+  height: 96px;
+  transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+.carta-link-btn:hover svg {
+  transform: scale(1.15);
+  stroke: #1a3d0f;
+}
+
+.carta-link-btn span {
+  display: block;
+  width: 100%;
+  background: #2d4a1e;
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Arial', sans-serif;
+  padding: 13px 0;
+  text-align: center;
+  border-radius: 3px;
+  transition: background 0.3s ease, font-size 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.carta-link-btn:hover span {
+  background: #1a2e10;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.carta-item {
+  position: relative;
+  border-radius: 4px;
+  aspect-ratio: 3 / 2.5;
+  overflow: visible;
+  width: 100%;
+  align-self: end;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carta-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  z-index: 10;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.carta-item:hover .carta-bg {
+  filter: brightness(1.5);
+}
+
+.carta-item:hover .carta-product-img {
+  transform: scale(1.12);
+  transition: transform 0.3s ease;
+}
+
+.carta-item:hover span {
+  color: #2d6a2d;
+}
+
+.carta-product-img {
+  transition: transform 0.3s ease;
+}
+
+.carta-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.8);
+  z-index: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.carta-product-img {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 80%;
+  height: 130%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 2;
+  transform-origin: bottom center;
+}
+
+.carta-product-img--3 {
+  bottom: -20px;
+  width: 90%;
+  height: 140%;
+  object-position: bottom center;
+}
+
+.carta-item span {
+  position: absolute;
+  top: 12%;
+  left: 7%;
+  font-size: clamp(15px, 2vw, 24px);
+  font-weight: 900;
+  color: #111;
+  line-height: 1.2;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  z-index: 3;
+  transition: color 0.3s ease;
+}
+
+/* GALERÍA */
+.galeria {
+  padding: 64px 5% 48px;
+  text-align: center;
+}
+
+.galeria h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  color: #2d6a2d;
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: 56px;
+}
+
+.galeria-carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galeria-track-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.galeria-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.galeria-track .galeria-item {
+  flex: 0 0 25%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.galeria-arrow {
+  background: none;
+  border: 2px solid #2d6a2d;
+  color: #2d6a2d;
+  font-size: 36px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.galeria-arrow:hover {
+  background: #2d6a2d;
+  color: #fff;
+}
+
+.galeria-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.galeria-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c5d5c5;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.galeria-dot.active {
+  background: #2d6a2d;
+  transform: scale(1.3);
+}
+
+.galeria-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item--active .galeria-arch {
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.galeria-arch {
+  width: 78%;
+  aspect-ratio: 3 / 4.2;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  background: #e8ede8;
+  border: 6px solid #e0eae0;
+  margin-bottom: -44px;
+  position: relative;
+  z-index: 2;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.galeria-item:hover .galeria-arch {
+  width: 90%;
+  z-index: 10;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.galeria-item:hover .galeria-arch img {
+  filter: brightness(0.92);
+  transform: scale(1.1);
+}
+
+.galeria-item span {
+  display: block;
+  width: 100%;
+  padding: 52px 0 22px;
+  font-size: 12px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #2d3a2d;
+  background: #c5d5c5;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover span {
+  opacity: 0;
+}
+
+/* RESERVAS */
+.reservas {
+  position: relative;
+  background: #2d4a1e;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 0;
+}
+
+.reservas-inner {
+  position: relative;
+  z-index: 2;
+  padding: 56px 6% 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.reservas h2 {
+  font-size: clamp(40px, 5vw, 64px);
+  color: #fff;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.reservas-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  width: 100%;
+}
+
+.reservas-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+.reservas-left p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.9;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.3px;
+  text-align: left;
+  border-left: 3px solid rgba(255,255,255,0.4);
+  padding-left: 16px;
+}
+
+.reservas-btn {
+  display: inline-block;
+  padding: 12px 36px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.reservas-btn:hover {
+  background: #fff;
+  color: #2d4a1e;
+  transform: scale(1.04);
+}
+
+.reservas-right {
+  flex: 0 0 300px;
+  margin-top: -56px;
+}
+
+.reservas-arch {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservas-arch:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.reservas-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.reservas-arch:hover img {
+  transform: scale(1.08);
+}
+
+/* OVERLAY */
+.img-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.img-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.img-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.88);
+  transition: transform 0.4s ease;
+}
+
+.img-overlay.active img {
+  transform: scale(1);
+}
+
+.reservas-cafe-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* FOOTER */
+.footer {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  border-top: 1px solid #eee;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: #888;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #2d3a2d;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.footer-social a:hover { opacity: 0.6; }
+
+.footer-social svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .carta-grid { grid-template-columns: repeat(2, 1fr); }
+  .carta-links { grid-template-columns: repeat(2, 1fr); }
+  .nosotros-img { flex: 0 0 420px; }
+  .nosotros-img img { width: 100%; height: auto; }
+}
+
+@media (max-width: 768px) {
+  .navbar { flex-wrap: wrap; padding: 16px 24px; gap: 0; }
+  .nav-toggle { display: flex; }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0;
+  }
+  nav.open { max-height: 400px; padding: 12px 0; }
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 4px;
+    border-bottom: 1px solid #e8f0e8;
+    font-size: 14px;
+  }
+  nav .sep { display: none; }
+
+  .nosotros { flex-direction: column; padding: 40px 5%; gap: 32px; }
+  .nosotros-img { flex: unset; width: 100%; }
+  .nosotros-img img { width: 100%; height: auto; }
+
+  .plant-divider { height: 180px; }
+
+  .carta { padding: 40px 5%; }
+  .carta-grid { grid-template-columns: 1fr; }
+  .carta-links { grid-template-columns: 1fr; }
+
+  .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .galeria-track .galeria-item { flex: 0 0 50%; }
+
+  .reservas-body { flex-direction: column; }
+  .reservas-right { flex: unset; width: 55%; margin: 0 auto; }
+  .reservas-inner { padding-bottom: 240px; }
+
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px 24px; }
+}
+
+@media (max-width: 480px) {
+  .carta-links { grid-template-columns: 1fr; }
+  .galeria-grid { grid-template-columns: 1fr; }
+  .galeria-track .galeria-item { flex: 0 0 100%; }
+  .nosotros-text h2 { font-size: 32px; }
+  .carta h2, .galeria h2 { font-size: 32px; }
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rebel Jungle - Café & Plantas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Rebel Jungle - Café & Plantas" class="logo-img" />
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="#nosotros">NOSOTROS</a>
+      <span class="sep">|</span>
+      <a href="#carta">LA CARTA</a>
+      <span class="sep">|</span>
+      <a href="#galeria">GALERÍA</a>
+      <span class="sep">|</span>
+      <a href="#reservas">RESERVAS</a>
+      <span class="sep">|</span>
+      <a href="#contacto">CONTÁCTO</a>
+    </nav>
+  </header>
+  <!-- OVERLAY -->
+  <div class="img-overlay" id="img-overlay">
+    <img src="img/gra.jpeg" alt="Vista completa del restaurante" />
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    const archBtn = document.getElementById('reservas-arch-btn');
+    const overlay = document.getElementById('img-overlay');
+
+    archBtn.addEventListener('mouseenter', () => overlay.classList.add('active'));
+    archBtn.addEventListener('mouseleave', () => overlay.classList.remove('active'));
+    overlay.addEventListener('click', () => overlay.classList.remove('active'));
+  </script>
+
+  <!-- PLANT DIVIDER -->
+  <div class="plant-divider" aria-hidden="true">
+    <img src="img/plantas.png" alt="" class="plant-banner-img" />
+    <div class="plant-overlay"></div>
+  </div>
+
+  <!-- NOSOTROS -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-text">
+      <h2>Nosotros</h2>
+      <p>Rebel Jungle ofrece a los visitantes una muestra de la mejor gastronomía peruana e internacional, en un ambiente romántico y acogedor.</p>
+      <p>Con una carta casera y variada, buscamos redescubrir los sabores, productos y costumbres de las diferentes regiones del Perú, confirmando así que este país es un extraordinario destino gastronómico y cultural.</p>
+      <p>Entradas, piqueos, sándwiches, platos de fondo y postres son elaborados con los más frescos ingredientes, y pueden ser acompañados con bebidas frías o calientes de nuestra barra.</p>
+      <p class="quote">"Plantas, café y buena energía."</p>
+    </div>
+    <div class="nosotros-img">
+      <img src="img/cafe1.png" alt="Taza de café" />
+    </div>
+  </section>
+
+  <!-- LA CARTA -->
+  <section class="carta" id="carta">
+    <h2>La Carta</h2>
+
+    <!-- Fila 1: imágenes -->
+    <div class="carta-grid">
+      <a href="#" class="carta-item">
+        <div class="carta-bg" style="background-image: url('img/Mesa de trabajo 1.png')"></div>
+        <img src="img/1.png" alt="Bebidas Frías" class="carta-product-img" />
+        <span>BEBIDAS<br>FRÍAS</span>
+      </a>
+      <a href="#" class="carta-item">
+        <div class="carta-bg" style="background-image: url('img/Mesa de trabajo 2.png')"></div>
+        <img src="img/2.png" alt="Frappes" class="carta-product-img" />
+        <span>FRAPPES</span>
+      </a>
+      <a href="#" class="carta-item">
+        <div class="carta-bg" style="background-image: url('img/Mesa de trabajo 3.png')"></div>
+        <img src="img/3.png" alt="Pasteles y Wafles" class="carta-product-img carta-product-img--3" />
+        <span>PASTELES<br>Y WAFLES</span>
+      </a>
+    </div>
+
+    <!-- Fila 2: botones con iconos -->
+    <div class="carta-links">
+      <a href="#" class="carta-link-btn">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d6a2d" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="32" width="44" height="26" rx="2"/>
+          <path d="M18 32 C18 18 46 18 46 32"/>
+          <ellipse cx="32" cy="34" rx="9" ry="11"/>
+          <circle cx="25" cy="50" r="2.5"/><circle cx="32" cy="50" r="2.5"/><circle cx="39" cy="50" r="2.5"/>
+        </svg>
+        <span>Terrarios (PDF)</span>
+      </a>
+      <a href="#" class="carta-link-btn">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d6a2d" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12 C8 12 24 8 32 16 C40 8 56 12 56 12 L56 54 C56 54 40 50 32 58 C24 50 8 54 8 54 Z"/>
+          <line x1="32" y1="16" x2="32" y2="58"/>
+          <line x1="14" y1="22" x2="28" y2="25"/><line x1="14" y1="31" x2="28" y2="33"/><line x1="14" y1="40" x2="28" y2="41"/>
+          <line x1="36" y1="25" x2="50" y2="22"/><line x1="36" y1="33" x2="50" y2="31"/><line x1="36" y1="41" x2="50" y2="40"/>
+        </svg>
+        <span>Carta (PDF)</span>
+      </a>
+      <a href="#" class="carta-link-btn">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d6a2d" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="26" width="44" height="8" rx="2"/>
+          <rect x="14" y="34" width="36" height="24" rx="2"/>
+          <line x1="32" y1="26" x2="32" y2="58"/>
+          <path d="M32 26 C29 20 20 16 20 10 C20 4 28 4 32 12 C36 4 44 4 44 10 C44 16 35 20 32 26Z"/>
+        </svg>
+        <span>Regalos</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="galeria" id="galeria">
+    <h2>Galería</h2>
+    <div class="galeria-carousel">
+      <button class="galeria-arrow galeria-arrow--prev" aria-label="Anterior">&#8249;</button>
+      <div class="galeria-track-wrapper">
+        <div class="galeria-track">
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/a.webp" alt="Ambiente" /></div>
+            <span>AMBIENTE</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/d.jpeg" alt="Plantas" /></div>
+            <span>PLANTAS</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/b.webp" alt="Desayunos" /></div>
+            <span>DESAYUNOS</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/c.jpeg" alt="Regalos" /></div>
+            <span>REGALOS</span>
+          </a>
+          <!-- clones para bucle -->
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/a.webp" alt="Ambiente" /></div>
+            <span>AMBIENTE</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/d.jpeg" alt="Plantas" /></div>
+            <span>PLANTAS</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/b.webp" alt="Desayunos" /></div>
+            <span>DESAYUNOS</span>
+          </a>
+          <a href="#" class="galeria-item">
+            <div class="galeria-arch"><img src="img/c.jpeg" alt="Regalos" /></div>
+            <span>REGALOS</span>
+          </a>
+        </div>
+      </div>
+      <button class="galeria-arrow galeria-arrow--next" aria-label="Siguiente">&#8250;</button>
+    </div>
+    <div class="galeria-dots">
+      <span class="galeria-dot active"></span>
+      <span class="galeria-dot"></span>
+      <span class="galeria-dot"></span>
+      <span class="galeria-dot"></span>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section class="reservas" id="reservas">
+    <div class="reservas-inner">
+      <h2>Reservas</h2>
+      <div class="reservas-body">
+        <div class="reservas-left">
+          <p>Por favor ten en cuenta que la tolerancia es de 15 minutos y dispones de la mesa durante un máximo de 120 minutos desde la hora reservada, independientemente de la hora de llegada. Para grupos de más de 6 personas, podrán ser ubicados en una mesa cuando el 70% de los invitados estén presentes en el restaurante. En caso contrario, ingresarán a lista de espera.</p>
+          <a href="#" class="reservas-btn">RESERVAR</a>
+        </div>
+        <div class="reservas-right">
+          <div class="reservas-arch" id="reservas-arch-btn">
+            <img src="img/resrva.png" alt="Interior del restaurante" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="img/base.png" alt="" class="reservas-cafe-img" aria-hidden="true" />
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacto">
+    <p class="footer-copy">© Todos los derechos reservados</p>
+    <div class="footer-social">
+      <a href="#" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.988l4.26 5.632 4.746-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Animación entrada Nosotros
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelector('.nosotros-text') && observer.observe(document.querySelector('.nosotros-text'));
+    document.querySelector('.nosotros-img') && observer.observe(document.querySelector('.nosotros-img'));
+
+    // Carrusel Galería - bucle infinito
+    const track = document.querySelector('.galeria-track');
+    const allItems = document.querySelectorAll('.galeria-track .galeria-item');
+    const dots = document.querySelectorAll('.galeria-dot');
+    const prevBtn = document.querySelector('.galeria-arrow--prev');
+    const nextBtn = document.querySelector('.galeria-arrow--next');
+    const total = 4;
+    const visible = 4;
+    let current = 0;
+    let autoplay;
+    let isTransitioning = false;
+
+    function updateTrack(animate) {
+      track.style.transition = animate ? 'transform 0.5s ease' : 'none';
+      track.style.transform = `translateX(-${current * 25}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === (current % total)));
+    }
+
+    function goTo(index) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      current = index;
+      updateTrack(true);
+    }
+
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      if (current >= total) {
+        current = current % total;
+        updateTrack(false);
+      } else if (current < 0) {
+        current = total + current;
+        updateTrack(false);
+      }
+    });
+
+    function startAutoplay() {
+      autoplay = setInterval(() => goTo(current + 1), 3000);
+    }
+    function stopAutoplay() { clearInterval(autoplay); }
+
+    prevBtn.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
+    nextBtn.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); }));
+
+    updateTrack(false);
+    startAutoplay();
+  </script>
+</body>
+</html>
